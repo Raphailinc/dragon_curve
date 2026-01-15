@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dragon Curve Playground</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Dragon Curve Playground</h1>
+      <p class="subtitle">Интерактивная генерация кривой дракона с настройками и экспортом.</p>
+    </div>
+    <div class="actions">
+      <button id="reset">Сброс</button>
+      <button id="download">Скачать SVG</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="canvas-panel">
+      <svg id="fractal" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dragon curve"></svg>
+    </section>
+
+    <section class="controls">
+      <div class="control">
+        <label for="iterations">Итерации: <span id="iterations-value">12</span></label>
+        <input id="iterations" type="range" min="5" max="18" value="12">
+      </div>
+      <div class="control">
+        <label for="speed">Скорость анимации (мс): <span id="speed-value">20</span></label>
+        <input id="speed" type="range" min="0" max="100" value="20">
+      </div>
+      <div class="control">
+        <label for="direction">Начальное направление:</label>
+        <select id="direction">
+          <option value="right">→ Right</option>
+          <option value="left">← Left</option>
+          <option value="down">↓ Down</option>
+          <option value="up">↑ Up</option>
+        </select>
+      </div>
+      <div class="control">
+        <label for="color">Цвет линии:</label>
+        <input id="color" type="color" value="#38bdf8">
+      </div>
+      <div class="control">
+        <label for="thickness">Толщина линии:</label>
+        <input id="thickness" type="number" min="1" max="6" value="2">
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Алгоритм: рекурсивное деление отрезка с поворотом на 90°; каждая итерация добавляет сегменты. Анимация строится шагами.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
